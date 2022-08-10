@@ -10,22 +10,22 @@ export const TaskList = ({ tasks }) => {
   return (
     <section>
       {Object.keys(tasks).map((key, index) => {
-        const onChangedClick = (id) => {
-          dispatch(checkedTask(id));
-        };
         let taskList = tasks[key];
         //遍历某个list里的所有数值，key是总数，和task的id不同，会根据list长度的变化而变化
+
+        const onChangedClick = () => {
+          let listId = taskList.id;
+          dispatch(checkedTask(listId));
+        };
         return (
           <div key={index}>
             <label htmlFor="check-box" />
             <input
               type="checkbox"
-              defaultChecked={taskList.isChecked}
+              checked={taskList.isChecked}
               onChange={onChangedClick}
             />
-            <span>
-              {key}:{taskList.taskName}
-            </span>
+            <span>{taskList.taskName}</span>
           </div>
         );
       })}
