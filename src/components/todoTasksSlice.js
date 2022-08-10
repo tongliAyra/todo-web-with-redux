@@ -1,15 +1,20 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
   {
-    id: "1",
+    id: "0",
     taskName: "the first todo task!",
     isChecked: false,
   },
   {
-    id: "2",
+    id: "1",
     taskName: "the second todo task!",
     isChecked: false,
+  },
+  {
+    id: "2",
+    taskName: "the finished todo task!",
+    isChecked: true,
   },
 ];
 const todoTasksSlice = createSlice({
@@ -20,22 +25,22 @@ const todoTasksSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(taskName) {
+      prepare(taskName, newId) {
         return {
           payload: {
-            id: nanoid(),
+            id: newId,
             taskName,
             isChecked: false,
           },
         };
       },
     },
-    completedTask(state) {
-      state.isChecked = true;
+    checkedTask(state, action) {
+      state[action.payload].isChecked = !state[action.payload].isChecked;
     },
     deleteTask(state) {},
   },
 });
 
-export const { addTask, completedTask, deleteTask } = todoTasksSlice.actions;
+export const { addTask, checkedTask, deleteTask } = todoTasksSlice.actions;
 export default todoTasksSlice.reducer;

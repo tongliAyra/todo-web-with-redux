@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "./todoTasksSlice";
 import { useState } from "react";
 
 const Header = () => {
   const [task, setTask] = useState("");
   const dispatch = useDispatch();
+  let listId = useSelector((state) => state.tasks.length - 1);
+  console.log(listId);
+  const newId = `${listId + 1}`;
   const handleAddTasks = () => {
-    dispatch(addTask(task));
-    setTask("");
+    dispatch(addTask(task, newId));
   };
 
   const onChangeName = (e) => {
