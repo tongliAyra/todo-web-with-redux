@@ -1,11 +1,11 @@
-import TaskList from "./components/TaskList";
+import TodoList from "./components/TodoList";
 import Header from "./components/Header";
 
 function App() {
   return (
     <section>
       <Header />
-      <TaskList />
+      <TodoList />
     </section>
   );
 }

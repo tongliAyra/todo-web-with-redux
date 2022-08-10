@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
   {
@@ -23,7 +23,7 @@ const todoTasksSlice = createSlice({
       prepare(taskName) {
         return {
           payload: {
-            id: initialState.length + 1,
+            id: nanoid(),
             taskName,
             isChecked: false,
           },
