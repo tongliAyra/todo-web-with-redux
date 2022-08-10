@@ -1,36 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import React from "react";
-import { checkedTask } from "./todoTasksSlice";
+import { TaskList } from "./TaskList";
 
 const CompletedList = () => {
-  const todo = useSelector((state) =>
-    state.tasks.filter((task) => task.isChecked)
-  );
-  console.log("filter", todo);
-
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(checkedTask());
-  };
-
-  const render = todo.map((task) => (
-    <section key={task.id}>
-      <label htmlFor="check-box" />
-      <input
-        key={task.id}
-        className="check-box"
-        type="checkbox"
-        defaultChecked={task.isChecked}
-        onChange={handleClick}
-      />
-      <p className={task.id}>{task.taskName}</p>
-    </section>
-  ));
+  const completedTasks = useSelector((state) => {
+    return state.tasks.filter((task) => task.isChecked);
+  });
 
   return (
     <section>
       <h3>Completed</h3>
-      <div>{render}</div>
+      <TaskList tasks={completedTasks} />
     </section>
   );
 };

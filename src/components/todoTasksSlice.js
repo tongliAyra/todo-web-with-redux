@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     id: "0",
-    taskName: "the first todo task!",
+    taskName: "0-the first todo task!",
     isChecked: false,
   },
   {
     id: "1",
-    taskName: "the second todo task!",
+    taskName: "1-the second todo task!",
     isChecked: false,
   },
   {
     id: "2",
-    taskName: "the finished todo task!",
+    taskName: "2-the finished todo task!",
     isChecked: true,
   },
 ];
