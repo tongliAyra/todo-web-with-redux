@@ -1,22 +1,32 @@
-import classes from './Header.module.css';
+import { useDispatch } from "react-redux";
+import { addTask } from "./todoTasksSlice";
+import { useState } from "react";
 
 const Header = () => {
+  const [task, setTask] = useState("");
+  const dispatch = useDispatch();
+  const handleAddTasks = () => {
+    dispatch(addTask(task));
+    setTask("");
+  };
+
+  const onChangeName = (e) => {
+    setTask(e.target.value);
+  };
+
   return (
-    <header className={classes.header}>
-      <h1>Redux Auth</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href='/'>My Products</a>
-          </li>
-          <li>
-            <a href='/'>My Sales</a>
-          </li>
-          <li>
-            <button>Logout</button>
-          </li>
-        </ul>
-      </nav>
+    <header>
+      <h1>Use this to manage your life and work</h1>
+      <label htmlFor="add-task" />
+      <input
+        type="text"
+        className="add-task"
+        placeholder="Enter your todo item"
+        onChange={onChangeName}
+      />
+      <button className="add-btn" onClick={handleAddTasks}>
+        +
+      </button>
     </header>
   );
 };

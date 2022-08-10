@@ -1,9 +1,12 @@
-import Counter from './components/Counter';
-
+import TaskList from "./components/TaskList";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <Counter />
+    <section>
+      <Header />
+      <TaskList />
+    </section>
   );
 }
 

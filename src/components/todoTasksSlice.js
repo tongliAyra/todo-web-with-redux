@@ -20,11 +20,12 @@ const todoTasksSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(id, taskName) {
+      prepare(taskName) {
         return {
           payload: {
-            id: "11",
+            id: initialState.length + 1,
             taskName,
+            isChecked: false,
           },
         };
       },
@@ -36,5 +37,5 @@ const todoTasksSlice = createSlice({
   },
 });
 
-export const taskActions = todoTasksSlice.actions;
+export const { addTask, completedTask, deleteTask } = todoTasksSlice.actions;
 export default todoTasksSlice.reducer;
