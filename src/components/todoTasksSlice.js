@@ -38,7 +38,9 @@ const todoTasksSlice = createSlice({
     checkedTask(state, action) {
       state[action.payload].isChecked = !state[action.payload].isChecked;
     },
-    deleteTask(state) {},
+    deleteTask(state, action) {
+      state.splice(action.payload, 1);
+    },
   },
 });
 

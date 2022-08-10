@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import React from "react";
-import { checkedTask } from "./todoTasksSlice";
+import { checkedTask, deleteTask } from "./todoTasksSlice";
 
 //遍历对象数组 https://mdnice.com/writing/c3c0df37674a42aa812cb3b6e8e542a1
 
@@ -17,6 +17,11 @@ export const TaskList = ({ tasks }) => {
           let listId = taskList.id;
           dispatch(checkedTask(listId));
         };
+
+        const onDeleteClick = () => {
+          let listId = taskList.id;
+          dispatch(deleteTask(listId));
+        };
         return (
           <div key={index}>
             <label htmlFor="check-box" />
@@ -26,6 +31,9 @@ export const TaskList = ({ tasks }) => {
               onChange={onChangedClick}
             />
             <span>{taskList.taskName}</span>
+            <button className="delete-btn" onClick={onDeleteClick}>
+              Delete
+            </button>
           </div>
         );
       })}
