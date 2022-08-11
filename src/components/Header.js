@@ -10,7 +10,10 @@ const Header = () => {
   const newId = `${listId + 1}`;
 
   const handleAddTasks = () => {
-    dispatch(addTask(task, newId));
+    if (task !== "") {
+      dispatch(addTask(task, newId));
+    }
+    alert("Please input tasks!");
   };
 
   const onChangeName = (e) => {
