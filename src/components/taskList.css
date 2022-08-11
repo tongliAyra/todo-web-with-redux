@@ -1,0 +1,42 @@
+ul{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 135px;
+    margin-right: 115px;
+}
+
+
+ul li{
+    list-style-type: none;
+    margin-bottom: 10px;
+    background: rgba(211, 211, 211, 0.2);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn {
+    cursor: pointer;
+    color: #e37474;
+    border-radius: 6px;
+    border: white;
+}
+
+.delete-btn:hover,
+.delete-btn:active {
+    background-color: #e37474;
+    color: white;
+}
+
+li input{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+li span{
+    font-size: 17px;
+}

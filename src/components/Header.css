@@ -25,16 +25,15 @@ header div input{
 
 header button{
   cursor: pointer;
-  background-color: #1a8dbe;
+  background-color: #e37474;
   color: white;
-  padding-bottom: 10px;
-  padding-top: 9px;
   border-radius: 6px;
   border: white;
   font-size: 20px;
+  padding: 9px 15px 10px;
 }
 
 header button:hover,
 header button:active {
-  background-color: #04156c;
+  background-color: #5a93b9;
 }
