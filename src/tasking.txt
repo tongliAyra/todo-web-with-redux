@@ -2,6 +2,8 @@
 
 2 创建components关于todo app的组件
     2.1 add task 设置校验规则：空格不能添加
+    2.2 add task 添加任务后自动清空
+    2.3 list 排序要显示最新的task
 
 3 实现不和后端交互的前端页面
 

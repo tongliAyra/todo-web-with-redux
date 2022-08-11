@@ -10,34 +10,36 @@ export const TaskList = ({ tasks }) => {
 
   return (
     <ul>
-      {Object.keys(tasks).map((key, index) => {
-        let taskList = tasks[key];
-        //遍历某个list里的所有数值，key是总数，和task的id不同，会根据list长度的变化而变化
+      {Object.keys(tasks)
+        .sort((a, b) => b - a)
+        .map((key, index) => {
+          let taskList = tasks[key];
+          //遍历某个list里的所有数值，key是总数，和task的id不同，会根据list长度的变化而变化
 
-        const onChangedClick = () => {
-          let listId = taskList.id;
-          dispatch(checkedTask(listId));
-        };
+          const onChangedClick = () => {
+            let listId = taskList.id;
+            dispatch(checkedTask(listId));
+          };
 
-        const onDeleteClick = () => {
-          let listId = taskList.id;
-          dispatch(deleteTask(listId));
-        };
-        return (
-          <li key={index}>
-            <label htmlFor="check-box" />
-            <input
-              type="checkbox"
-              checked={taskList.isChecked}
-              onChange={onChangedClick}
-            />
-            <span>{taskList.taskName}</span>
-            <button className="delete-btn" onClick={onDeleteClick}>
-              Delete
-            </button>
-          </li>
-        );
-      })}
+          const onDeleteClick = () => {
+            let listId = taskList.id;
+            dispatch(deleteTask(listId));
+          };
+          return (
+            <li key={index}>
+              <label htmlFor="check-box" />
+              <input
+                type="checkbox"
+                checked={taskList.isChecked}
+                onChange={onChangedClick}
+              />
+              <span>{taskList.taskName}</span>
+              <button className="delete-btn" onClick={onDeleteClick}>
+                Delete
+              </button>
+            </li>
+          );
+        })}
     </ul>
   );
 };
