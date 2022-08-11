@@ -30,6 +30,7 @@ ul li:hover .delete-btn{
     border-radius: 6px;
     border: white;
     display: none;
+    margin-right: 10px;
 }
 
 .delete-btn:hover,
