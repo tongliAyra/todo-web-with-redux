@@ -10,10 +10,12 @@ const Header = () => {
   const newId = `${listId + 1}`;
 
   const handleAddTasks = () => {
-    if (task !== "") {
+    if (task === "") {
+      alert("Please input tasks!");
+    } else {
       dispatch(addTask(task, newId));
+      setTask("");
     }
-    alert("Please input tasks!");
   };
 
   const onChangeName = (e) => {
@@ -29,6 +31,7 @@ const Header = () => {
           type="text"
           className="add-task"
           placeholder=" Enter your todo item"
+          value={task}
           onChange={onChangeName}
         />
         <button className="add-btn" onClick={handleAddTasks}>
