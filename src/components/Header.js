@@ -7,6 +7,7 @@ const Header = () => {
   const dispatch = useDispatch();
   let listId = useSelector((state) => state.tasks.length - 1);
   const newId = `${listId + 1}`;
+
   const handleAddTasks = () => {
     dispatch(addTask(task, newId));
   };
