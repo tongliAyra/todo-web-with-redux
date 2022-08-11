@@ -17,6 +17,11 @@ ul li{
     height: 50px;
     display: flex;
     align-items: center;
+    border-radius: 5px;
+}
+
+ul li:hover .delete-btn{
+    display: block;
 }
 
 .delete-btn {
@@ -24,6 +29,7 @@ ul li{
     color: #e37474;
     border-radius: 6px;
     border: white;
+    display: none;
 }
 
 .delete-btn:hover,
@@ -39,4 +45,9 @@ li input{
 
 li span{
     font-size: 17px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
