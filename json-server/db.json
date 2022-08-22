@@ -1,39 +1,9 @@
 {
   "tasks": [
     {
-      "id": 0,
-      "taskName": "000",
-      "isChecked": false
-    },
-    {
-      "id": 1,
-      "taskName": "1-the second todo task!",
-      "isChecked": false
-    },
-    {
       "id": 2,
       "taskName": "222",
-      "isChecked": false
-    },
-    {
-      "id": 3,
-      "taskName": "333",
-      "isChecked": false
-    },
-    {
-      "id": 4,
-      "taskName": "444",
-      "isChecked": false
-    },
-    {
-      "id": 5,
-      "taskName": "555",
-      "isChecked": false
-    },
-    {
-      "id": 6,
-      "taskName": "666",
-      "isChecked": false
+      "isChecked": true
     },
     {
       "id": 7,
@@ -43,6 +13,31 @@
     {
       "id": 8,
       "taskName": "1",
+      "isChecked": true
+    },
+    {
+      "id": 9,
+      "taskName": "222",
+      "isChecked": false
+    },
+    {
+      "id": 10,
+      "taskName": "333",
+      "isChecked": false
+    },
+    {
+      "id": 11,
+      "taskName": "a",
+      "isChecked": true
+    },
+    {
+      "id": 12,
+      "taskName": "b",
+      "isChecked": true
+    },
+    {
+      "id": 13,
+      "taskName": "c",
       "isChecked": true
     }
   ]

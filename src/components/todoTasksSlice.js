@@ -41,6 +41,11 @@ export const updateTasks = createAsyncThunk('tasks/updateTasks',async (updateTas
   return response.data
 })
 
+export const deleteTasks = createAsyncThunk('tasks/deleteTasks',async(id)=>{
+  const response = await axios.delete(`http://localhost:3001/tasks/${id}`)
+  return response.data
+})
+
 
 
 const todoTasksSlice = createSlice({
@@ -70,8 +75,10 @@ const todoTasksSlice = createSlice({
             taskName : taskName,
           }
         })
+        .addCase(deleteTasks.fulfilled,(state,action)=>{
+          state.tasks.splice(action.payload,1)
+        })
   }
 });
 
-export const { checkedTask, deleteTask } = todoTasksSlice.actions;
 export default todoTasksSlice.reducer;

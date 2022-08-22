@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
 import React from "react";
-import { deleteTask, updateTasks} from "./todoTasksSlice";
+import {deleteTasks, fetchTasks, updateTasks} from "./todoTasksSlice";
 import "./taskList.css";
 
 //遍历对象数组 https://mdnice.com/writing/c3c0df37674a42aa812cb3b6e8e542a1
 
 export const TaskList = ({ tasks }) => {
   const dispatch = useDispatch();
-
+// useEffect(()=>{
+//     dispatch(fetchTasks())
+// },[dispatch])
   return (
     <ul>
       {Object.keys(tasks)
@@ -26,7 +28,7 @@ export const TaskList = ({ tasks }) => {
 
           const onDeleteClick = () => {
             let listId = taskList.id;
-            dispatch(deleteTask(listId));
+            dispatch(deleteTasks(listId));
           };
           return (
             <li key={index}>
