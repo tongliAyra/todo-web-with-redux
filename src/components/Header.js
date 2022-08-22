@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "./todoTasksSlice";
 import { useState } from "react";
 import "./Header.css";
+import { Input } from "antd";
+import { ErrorMessage } from "./ErrorMessage";
 
 const Header = () => {
   const [task, setTask] = useState("");
@@ -9,15 +11,17 @@ const Header = () => {
   let listId = useSelector((state) => state.tasks.length - 1);
   const newId = `${listId + 1}`;
 
+  let showError = false;
+  console.log(showError);
   const handleAddTasks = () => {
     if (task === "") {
-      alert("Please input tasks!");
+      showError = true;
+      //TODO:wrong work space of show error,rethink the logic
     } else {
       dispatch(addTask(task, newId));
       setTask("");
     }
   };
-
   const onChangeName = (e) => {
     setTask(e.target.value);
   };
@@ -27,7 +31,7 @@ const Header = () => {
       <h1>Use this to manage your life and work</h1>
       <div>
         <label htmlFor="add-task" />
-        <input
+        <Input
           type="text"
           className="add-task"
           placeholder=" Enter your todo item"
@@ -38,6 +42,7 @@ const Header = () => {
           +
         </button>
       </div>
+      {showError && <ErrorMessage />}
     </header>
   );
 };

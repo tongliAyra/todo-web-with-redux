@@ -1,11 +1,14 @@
 1 使用react-redux 逻辑创建结构
 
-2 创建components关于todo app的组件
-    2.1 add task 设置校验规则：空格不能添加
+2 创建components关于todo app的组件（实现不和后端交互的前端页面）
+    2.1 add task 设置校验规则：空格不能添加, 删除input前后的空格！
+
     2.2 add task 添加任务后自动清空
     2.3 list 排序要显示最新的task
 
-3 实现不和后端交互的前端页面
+    ！2.4 错误校验添加在底部
+    ！2.5 可以更新task内容
 
 
-4 如何制作虚拟交互--课程
+3 引入mock server实现前后端交互
+4 添加测试文件

@@ -26,6 +26,7 @@ const todoTasksSlice = createSlice({
         state.push(action.payload);
       },
       prepare(taskName, newId) {
+        //TODO: should trim tasks empty here
         return {
           payload: {
             id: newId,
