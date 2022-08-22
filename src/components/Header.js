@@ -1,24 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addTask } from "./todoTasksSlice";
+import { useDispatch } from "react-redux";
+import {addTasks} from "./todoTasksSlice";
 import { useState } from "react";
 import "./Header.css";
 import { Input } from "antd";
-import { ErrorMessage } from "./ErrorMessage";
+// import { ErrorMessage } from "./ErrorMessage";
 
 const Header = () => {
   const [task, setTask] = useState("");
   const dispatch = useDispatch();
-  let listId = useSelector((state) => state.tasks.length - 1);
-  const newId = `${listId + 1}`;
 
-  let showError = false;
-  console.log(showError);
+  // let showError = false;
   const handleAddTasks = () => {
     if (task === "") {
-      showError = true;
+      // showError = true;
       //TODO:wrong work space of show error,rethink the logic
     } else {
-      dispatch(addTask(task, newId));
+      dispatch(addTasks({
+        taskName: task,
+        isChecked: false
+      }));
       setTask("");
     }
   };
@@ -42,7 +42,7 @@ const Header = () => {
           +
         </button>
       </div>
-      {showError && <ErrorMessage />}
+      {/*{showError && <ErrorMessage />}*/}
     </header>
   );
 };

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import React from "react";
-import { checkedTask, deleteTask } from "./todoTasksSlice";
+import { deleteTask, updateTasks} from "./todoTasksSlice";
 import "./taskList.css";
 
 //遍历对象数组 https://mdnice.com/writing/c3c0df37674a42aa812cb3b6e8e542a1
@@ -17,8 +17,11 @@ export const TaskList = ({ tasks }) => {
           //遍历某个list里的所有数值，key是总数，和task的id不同，会根据list长度的变化而变化
 
           const onChangedClick = () => {
-            let listId = taskList.id;
-            dispatch(checkedTask(listId));
+            dispatch(updateTasks({
+              id:taskList.id,
+              taskName: taskList.taskName,
+              isChecked: !taskList.isChecked,
+            }));
           };
 
           const onDeleteClick = () => {

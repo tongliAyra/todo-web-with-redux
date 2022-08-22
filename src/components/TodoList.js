@@ -4,7 +4,7 @@ import { TaskList } from "./TaskList";
 
 const TodoList = () => {
   const todoTasks = useSelector((state) => {
-    return state.tasks.filter((task) => !task.isChecked);
+    return state.tasks.tasks.filter((task) => !task.isChecked);
   });
 
   return <TaskList tasks={todoTasks} />;

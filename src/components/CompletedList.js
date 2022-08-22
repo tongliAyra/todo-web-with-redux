@@ -4,7 +4,7 @@ import { TaskList } from "./TaskList";
 
 const CompletedList = () => {
   const completedTasks = useSelector((state) => {
-    return state.tasks.filter((task) => task.isChecked);
+    return state.tasks.tasks.filter((task) => task.isChecked);
   });
 
   return (
