@@ -1,0 +1,19 @@
+{
+  "tasks" : [
+  {
+    "id": "0",
+    "taskName": "0-the first todo task!",
+    "isChecked": false
+  },
+  {
+    "id": "1",
+    "taskName": "1-the second todo task!",
+    "isChecked": false
+  },
+  {
+    "id": "2",
+    "taskName": "2-the finished todo task!",
+    "isChecked": true
+  }
+]
+}
