@@ -53,4 +53,7 @@ li span{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+li span:hover{
+    cursor: pointer;
+}
 

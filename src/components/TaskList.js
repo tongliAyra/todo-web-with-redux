@@ -7,6 +7,7 @@ import "./taskList.css";
 
 export const TaskList = ({tasks}) => {
   const dispatch = useDispatch();
+
   return (
     <ul>
       {Object.keys(tasks)
@@ -27,6 +28,15 @@ export const TaskList = ({tasks}) => {
             let listId = taskList.id;
             dispatch(deleteTasks(listId));
           };
+
+          const onTaskChange = ()=>{
+            const inputName = document.getElementById(`${taskList.id}`).innerHTML;
+            dispatch(updateTasks({
+              id:taskList.id,
+              taskName: inputName,
+              isChecked: taskList.isChecked,
+            }));
+          }
           return (
             <li key={index}>
               <label htmlFor="check-box" />
@@ -35,7 +45,8 @@ export const TaskList = ({tasks}) => {
                 checked={taskList.isChecked}
                 onChange={onChangedClick}
               />
-              <span>{taskList.taskName}</span>
+              <span id={taskList.id} contentEditable={true} onBlur={onTaskChange} >
+                {taskList.taskName}</span>
               <button className="delete-btn" onClick={onDeleteClick}>
                 Delete
               </button>
