@@ -2,29 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 
 
-// const initialState = [
-//   {
-//     id: "0",
-//     taskName: "0-the first todo task!",
-//     isChecked: false,
-//   },
-//   {
-//     id: "1",
-//     taskName: "1-the second todo task!",
-//     isChecked: false,
-//   },
-//   {
-//     id: "2",
-//     taskName: "2-the finished todo task!",
-//     isChecked: true,
-//   },
-// ];
-
-const initialState = {
-  tasks:[],
-  status: 'idle',
-  error: null
-}
+const initialState = []
 
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks',async ()=>{
   const response = await axios.get('http://localhost:3001/tasks')
@@ -46,39 +24,27 @@ export const deleteTasks = createAsyncThunk('tasks/deleteTasks',async(id)=>{
   return response.data
 })
 
-
-
 const todoTasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {},
   extraReducers(builder){
-    builder.addCase(fetchTasks.pending, (state,action)=>{
-      state.status = 'loading'
-    })
+    builder
         .addCase(fetchTasks.fulfilled,(state,action)=>{
-          state.status = 'succeeded'
-          state.tasks = state.tasks.concat(action.payload)
-        })
-        .addCase(fetchTasks.rejected,(state,action)=>{
-          state.status = 'failed'
-          state.error = action.error.message
+            return action.payload
         })
         .addCase(addTasks.fulfilled,(state,action)=>{
-          state.tasks.push(action.payload)
+           state.push(action.payload)
         })
         .addCase(updateTasks.fulfilled,(state,action)=>{
-          const{isChecked, taskName,id} = action.payload
-          state.tasks[id] = {
-            id:id,
-            isChecked : isChecked,
-            taskName : taskName,
-          }
+           return state.map((task) => task.id===action.payload.id ? action.payload : task)
         })
         .addCase(deleteTasks.fulfilled,(state,action)=>{
-          state.tasks.splice(action.payload,1)
+            const taskIndex = state.findIndex((task)=> task.id === action.payload)
+            state.splice(taskIndex,1)
         })
   }
 });
 
+export const allTasks = (state)=> state.tasks;
 export default todoTasksSlice.reducer;
