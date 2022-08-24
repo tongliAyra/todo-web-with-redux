@@ -45,7 +45,10 @@ export const TaskList = ({tasks}) => {
                 checked={taskList.isChecked}
                 onChange={onChangedClick}
               />
-              <span id={taskList.id} contentEditable={true} onBlur={onTaskChange} >
+              <span id={taskList.id}
+                    contentEditable={true}
+                    suppressContentEditableWarning={true}
+                    onBlur={onTaskChange} >
                 {taskList.taskName}</span>
               <button className="delete-btn" onClick={onDeleteClick}>
                 Delete
