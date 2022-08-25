@@ -11,15 +11,15 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const handleAddTasks = () => {
-    if (task !== "") {
+    if (task.match(/^\s*$/) ) {
+      setError(true)
+    }else {
       dispatch(addTasks({
         taskName: task.trim(),
         isChecked: false
       }));
       setTask("");
       setError(false)
-    }else {
-      setError(true)
     }
   };
   const onChangeName = (e) => {
