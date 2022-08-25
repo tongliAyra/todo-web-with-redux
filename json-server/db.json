@@ -2,58 +2,23 @@
   "tasks": [
     {
       "id": 1,
-      "taskName": 1,
+      "taskName": "task 001",
       "isChecked": true
     },
     {
-      "id": 4,
-      "taskName": "12hh",
+      "id": 2,
+      "taskName": "task 002",
       "isChecked": true
     },
     {
-      "taskName": "2.",
+      "taskName": "task 003",
       "isChecked": false,
-      "id": 5
+      "id": 3
     },
     {
-      "taskName": "3",
+      "taskName": "task 004",
       "isChecked": false,
-      "id": 6
-    },
-    {
-      "taskName": "1",
-      "isChecked": false,
-      "id": 7
-    },
-    {
-      "taskName": "1",
-      "isChecked": false,
-      "id": 8
-    },
-    {
-      "taskName": "333",
-      "isChecked": false,
-      "id": 9
-    },
-    {
-      "taskName": "1",
-      "isChecked": false,
-      "id": 10
-    },
-    {
-      "taskName": "13",
-      "isChecked": false,
-      "id": 11
-    },
-    {
-      "taskName": "33",
-      "isChecked": false,
-      "id": 12
-    },
-    {
-      "taskName": "33",
-      "isChecked": false,
-      "id": 13
+      "id": 4
     }
   ]
 }
