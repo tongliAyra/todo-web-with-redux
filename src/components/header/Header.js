@@ -1,25 +1,30 @@
 import { useDispatch } from "react-redux";
-import {addTasks} from "./todoTasksSlice";
-import {useState} from "react";
+import { addTasks } from "../api/todoTasksSlice";
+import { useState } from "react";
 import "./Header.css";
-import { Input} from "antd";
-import {ErrorMessage} from "./ErrorMessage";
+import { Input } from "antd";
+import { ErrorMessage } from "../error-message/ErrorMessage";
 
-const Header = () => {
+const PLACEHOLDER = " Enter your todo item";
+const ADD_BUTTON = "+";
+
+export const Header = () => {
   const [task, setTask] = useState("");
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
 
   const handleAddTasks = () => {
-    if (task.match(/^\s*$/) ) {
-      setError(true)
-    }else {
-      dispatch(addTasks({
-        taskName: task.trim(),
-        isChecked: false
-      }));
+    if (task.match(/^\s*$/)) {
+      setError(true);
+    } else {
+      dispatch(
+        addTasks({
+          taskName: task.trim(),
+          isChecked: false,
+        })
+      );
       setTask("");
-      setError(false)
+      setError(false);
     }
   };
   const onChangeName = (e) => {
@@ -33,17 +38,15 @@ const Header = () => {
         <Input
           type="text"
           className="add-task"
-          placeholder=" Enter your todo item"
+          placeholder={PLACEHOLDER}
           value={task}
           onChange={onChangeName}
         />
         <button className="add-btn" onClick={handleAddTasks}>
-          +
+          {ADD_BUTTON}
         </button>
-        {error && <ErrorMessage/>}
+        {error && <ErrorMessage />}
       </div>
     </header>
   );
 };
-
-export default Header;

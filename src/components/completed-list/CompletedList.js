@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import React from "react";
-import { TaskList } from "./TaskList";
-import {allTasks} from "./todoTasksSlice";
+import { TaskList } from "../task-list/TaskList";
+import { allTasks } from "../api/todoTasksSlice";
 
-const CompletedList = () => {
-    const tasks = useSelector(allTasks)
-    const completedTasks = useSelector(() => {
+export const CompletedList = () => {
+  const tasks = useSelector(allTasks);
+  const completedTasks = useSelector(() => {
     return tasks.filter((task) => task.isChecked);
   });
 
@@ -16,4 +16,3 @@ const CompletedList = () => {
     </section>
   );
 };
-export default CompletedList;

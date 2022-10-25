@@ -8,17 +8,17 @@
     {
       "id": 2,
       "taskName": "task 002",
-      "isChecked": true
+      "isChecked": false
     },
     {
+      "id": 3,
       "taskName": "task 003",
-      "isChecked": false,
-      "id": 3
+      "isChecked": false
     },
     {
+      "id": 4,
       "taskName": "task 004",
-      "isChecked": false,
-      "id": 4
+      "isChecked": true
     }
   ]
 }
