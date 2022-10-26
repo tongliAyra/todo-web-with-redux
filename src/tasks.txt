@@ -4,8 +4,9 @@ refactor:
 3. 把组件内不使用的方法抽出去
 4. 常量抽出，方便后续整体修改
 
-新内容：
+features：
 1. add eslint
+    eslint 设置scripts
 2. 用git拉出分支去写新的实现
 
 questions:

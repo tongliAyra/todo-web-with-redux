@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import todoTasksReducer from "../components/api/todoTasksSlice";
+import { configureStore } from '@reduxjs/toolkit'
+import todoTasksReducer from '../components/api/todoTasksSlice'
 
 const store = configureStore({
-  reducer: { tasks: todoTasksReducer },
-});
+  reducer: { tasks: todoTasksReducer }
+})
 
-export default store;
+export default store

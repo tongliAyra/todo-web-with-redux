@@ -1,60 +1,60 @@
-import { useDispatch } from "react-redux";
-import React from "react";
-import { deleteTasks, updateTasks } from "../api/todoTasksSlice";
-import "./taskList.css";
+import { useDispatch } from 'react-redux'
+import React from 'react'
+import { deleteTasks, updateTasks } from '../api/todoTasksSlice'
+import './taskList.css'
 
 export const TaskList = ({ tasks }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const sortedTasks = tasks.sort((a, b) => b.id - a.id);
+  const sortedTasks = tasks.sort((a, b) => b.id - a.id)
 
   return (
     <ul>
-      {sortedTasks.map((taskList) => (
-        <li key={taskList.id}>
+      { sortedTasks.map((taskList) => (
+        <li key={ taskList.id }>
           <label htmlFor="check-box" />
           <input
             type="checkbox"
-            checked={taskList.isChecked}
-            onChange={() =>
+            checked={ taskList.isChecked }
+            onChange={ () =>
               dispatch(
                 updateTasks({
                   id: taskList.id,
                   taskName: taskList.taskName,
-                  isChecked: !taskList.isChecked,
+                  isChecked: !taskList.isChecked
                 })
               )
             }
           />
           <span
-            id={taskList.id}
-            contentEditable={true}
-            suppressContentEditableWarning={true}
-            onBlur={() => {
+            id={ taskList.id }
+            contentEditable={ true }
+            suppressContentEditableWarning={ true }
+            onBlur={ () => {
               const inputName = document.getElementById(
                 `${taskList.id}`
-              ).innerHTML;
+              ).innerHTML
               dispatch(
                 updateTasks({
                   id: taskList.id,
                   taskName: inputName,
-                  isChecked: taskList.isChecked,
+                  isChecked: taskList.isChecked
                 })
-              );
-            }}
+              )
+            } }
           >
-            {taskList.taskName}
+            { taskList.taskName }
           </span>
           <button
             className="delete-btn"
-            onClick={() => {
-              dispatch(deleteTasks(taskList.id));
-            }}
+            onClick={ () => {
+              dispatch(deleteTasks(taskList.id))
+            } }
           >
             Delete
           </button>
         </li>
-      ))}
+      )) }
     </ul>
-  );
-};
+  )
+}
