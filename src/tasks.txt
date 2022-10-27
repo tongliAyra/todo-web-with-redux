@@ -6,8 +6,15 @@ refactor:
 
 features：
 1. add eslint
-    eslint 设置scripts
-2. 用git拉出分支去写新的实现
+    - eslint 设置scripts
+2. 用git拉出新分支
+3. 根据参考页面规划组件
+    - header
+    - task content
+        - task input
+        - task list
+        - task overview + filter
+    - footer
 
 questions:
 1. && 需要抽取常量吗？抽取的使用？

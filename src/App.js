@@ -1,14 +1,14 @@
 import React from 'react'
-import { Header } from './components/header/Header'
-import { TodoList } from './components/todo-list/TodoList'
-import { CompletedList } from './components/completed-list/CompletedList'
+import { TaskContent } from './components/task-content/TaskContent.js'
+import { Footer } from './components/footer/Footer'
+import { Header } from './components/header/header'
 
 export const App = () => {
   return (
     <section>
       <Header />
-      <TodoList />
-      <CompletedList />
+      <TaskContent />
+      <Footer />
     </section>
   )
 }

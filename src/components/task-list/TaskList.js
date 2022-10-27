@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import React from 'react'
 import { deleteTasks, updateTasks } from '../api/todoTasksSlice'
-import './taskList.css'
+import './TaskList.css'
 
 export const TaskList = ({ tasks }) => {
   const dispatch = useDispatch()
