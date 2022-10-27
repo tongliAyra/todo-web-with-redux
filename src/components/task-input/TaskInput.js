@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addTasks } from '../api/todoTasksSlice'
 import { useState } from 'react'
-import './TaskInput.css'
+import './style.css'
 import { Input } from 'antd'
 import { ErrorMessage } from '../error-message/ErrorMessage'
 

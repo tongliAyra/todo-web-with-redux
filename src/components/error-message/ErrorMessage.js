@@ -1,5 +1,5 @@
 import React from 'react'
-import './ErrorMessage.css'
+import './style.css'
 
 const ERROR_MESSAGE = 'Please input something first!'
 export const ErrorMessage = () => {
