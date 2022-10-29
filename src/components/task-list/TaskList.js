@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const TaskList = ({ taskList }) => {
+export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
   const sortedTasks = taskList.sort((a, b) => b.id - a.id)
 
@@ -12,7 +12,11 @@ export const TaskList = ({ taskList }) => {
           <input
             type="checkbox"
             checked={ taskList.isChecked }
-            onChange={ () => {} }/>
+            onChange={ () => handleUpdateTask(
+              { id: taskList.id,
+                taskName: taskList.taskName,
+                isChecked: !taskList.isChecked }) }
+          />
           <span
             id={ taskList.id }
             contentEditable={ true }
@@ -22,7 +26,7 @@ export const TaskList = ({ taskList }) => {
           </span>
           <button
             className="delete-btn"
-            onClick={ () => {} }
+            onClick={ () => handleDeleteTask(taskList.id) }
           >
             Delete
           </button>
