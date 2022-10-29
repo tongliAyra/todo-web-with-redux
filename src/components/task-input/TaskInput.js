@@ -8,12 +8,15 @@ const PLACEHOLDER = 'What needs to be done?'
 export const TaskInput = ({ handleAddTask }) => {
   const [taskName, setTaskName] = useState('')
 
-  const onChangeName = (e) => {
-    setTaskName(e.target.value)
-  }
+  const onChangeName = (e) => setTaskName(e.target.value)
+
   const handlePressEnter = () => {
-    handleAddTask({ taskName, isChecked: false })
-    setTaskName('')
+    if (taskName !== ''){
+      handleAddTask({ taskName, isChecked: false })
+      setTaskName('')
+    }else {
+      return null
+    }
   }
 
   return (
