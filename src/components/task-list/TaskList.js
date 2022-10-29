@@ -1,12 +1,8 @@
-import { useDispatch } from 'react-redux'
 import React from 'react'
-import { deleteTasks, updateTasks } from '../api/todoTasksSlice'
-// import './style.css'
 
-export const TaskList = ({ tasks }) => {
-  const dispatch = useDispatch()
+export const TaskList = ({ taskList }) => {
 
-  const sortedTasks = tasks.sort((a, b) => b.id - a.id)
+  const sortedTasks = taskList.sort((a, b) => b.id - a.id)
 
   return (
     <ul>
@@ -16,40 +12,17 @@ export const TaskList = ({ tasks }) => {
           <input
             type="checkbox"
             checked={ taskList.isChecked }
-            onChange={ () =>
-              dispatch(
-                updateTasks({
-                  id: taskList.id,
-                  taskName: taskList.taskName,
-                  isChecked: !taskList.isChecked
-                })
-              )
-            }
-          />
+            onChange={ () => {} }/>
           <span
             id={ taskList.id }
             contentEditable={ true }
             suppressContentEditableWarning={ true }
-            onBlur={ () => {
-              const inputName = document.getElementById(
-                `${taskList.id}`
-              ).innerHTML
-              dispatch(
-                updateTasks({
-                  id: taskList.id,
-                  taskName: inputName,
-                  isChecked: taskList.isChecked
-                })
-              )
-            } }
           >
             { taskList.taskName }
           </span>
           <button
             className="delete-btn"
-            onClick={ () => {
-              dispatch(deleteTasks(taskList.id))
-            } }
+            onClick={ () => {} }
           >
             Delete
           </button>

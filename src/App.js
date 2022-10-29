@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <section>
       <Header />
-      <TaskContent />
+      <TaskContent/>
       <Footer />
     </section>
   )

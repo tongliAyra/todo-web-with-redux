@@ -11,6 +11,10 @@ export const TaskInput = ({ handleAddTask }) => {
   const onChangeName = (e) => {
     setTaskName(e.target.value)
   }
+  const handlePressEnter = () => {
+    handleAddTask({ taskName, isChecked: false })
+    setTaskName('')
+  }
 
   return (
     <div>
@@ -19,7 +23,7 @@ export const TaskInput = ({ handleAddTask }) => {
         type="text"
         className="add-task"
         placeholder={ PLACEHOLDER }
-        onPressEnter={ () => handleAddTask({ taskName, isChecked: false }) }
+        onPressEnter={ () => handlePressEnter() }
         value={ taskName }
         onChange={ onChangeName }
       />
