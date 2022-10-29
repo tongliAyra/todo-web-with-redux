@@ -1,36 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { addTasks } from '../api/todoTasksSlice'
 import { useState } from 'react'
 import './style.css'
 import { Input } from 'antd'
-import { ErrorMessage } from '../error-message/ErrorMessage'
 
-const PLACEHOLDER = ' Enter your todo item'
-const ADD_BUTTON = '+'
+const PLACEHOLDER = 'What needs to be done?'
 
-export const TaskInput = () => {
-  const [task, setTask] = useState('')
-  const [error, setError] = useState(false)
-  const dispatch = useDispatch()
+export const TaskInput = ({ handleAddTask }) => {
+  const [taskName, setTaskName] = useState('')
 
-  const handleAddTasks = () => {
-    if (task.match(/^\s*$/)) {
-      setError(true)
-    } else {
-      dispatch(
-        addTasks({
-          taskName: task.trim(),
-          isChecked: false
-        })
-      )
-      setTask('')
-      setError(false)
-    }
-  }
   const onChangeName = (e) => {
-    setTask(e.target.value)
+    setTaskName(e.target.value)
   }
+
   return (
     <div>
       <label htmlFor="add-task" />
@@ -38,13 +19,10 @@ export const TaskInput = () => {
         type="text"
         className="add-task"
         placeholder={ PLACEHOLDER }
-        value={ task }
+        onPressEnter={ () => handleAddTask({ taskName, isChecked: false }) }
+        value={ taskName }
         onChange={ onChangeName }
       />
-      <button className="add-btn" onClick={ handleAddTasks }>
-        { ADD_BUTTON }
-      </button>
-      { error && <ErrorMessage /> }
     </div>
   )
 }
