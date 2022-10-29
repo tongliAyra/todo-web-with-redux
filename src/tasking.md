@@ -18,5 +18,16 @@
     - task content
         - task input
         - task list
-        - task overview + filter
+        - task overview
+          - todo task count
+          - task filter
     - footer
+4. task input
+   - 输入新的taskName，点击回车储存在数据里
+5. task list
+   - 显示出数据里的每一条task
+     - 未完成的task
+     - 完成的task
+   - 倒序显示
+   - 点击checkbox更改状态
+   - 点击删除按钮删除task
