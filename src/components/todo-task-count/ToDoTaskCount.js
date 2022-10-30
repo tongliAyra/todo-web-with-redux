@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const ToDoTaskCount = () => {
-  const todoCountAmount = 3
+export const ToDoTaskCount = ({ todoTaskCount }) => {
+  const todoCountAmount = todoTaskCount
   const ITEMS_LEFT = 'items left'
 
   return <p>{ todoCountAmount } { ITEMS_LEFT }</p>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { TaskInput } from '../task-input/TaskInput'
-import { TaskOverview } from '../task-overview/TaskOverview'
 import { TaskList } from '../task-list/TaskList'
 import { addTasks, deleteTasks, fetchTasks, updateTasks } from '../api/api'
+import { TaskOverview } from '../task-overview/TaskOverview'
 
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])
@@ -19,17 +19,19 @@ export const TaskContent = () => {
 
   const handleUpdateTask = async ({ id, taskName, isChecked }) => {
     await updateTasks({ id, taskName, isChecked })
-    // fetchTasks()
+    fetchTasks()
   }
 
   const handleDeleteTask = async (id) => {
     await deleteTasks(id)
-    // fetchTasks()
+    fetchTasks()
   }
 
   useEffect(() => {
     fetchTask()
   },[])
+
+  const todoTaskCount = taskList.filter((task) => task.isChecked === false).length
 
   return (
     <div>
@@ -39,7 +41,7 @@ export const TaskContent = () => {
         handleUpdateTask={ handleUpdateTask }
         handleDeleteTask={ handleDeleteTask }
       />
-      <TaskOverview/>
+      <TaskOverview todoTaskCount={ todoTaskCount }/>
     </div>
   )
 }
