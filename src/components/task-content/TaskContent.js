@@ -43,7 +43,12 @@ export const TaskContent = () => {
 
   return (
     <div>
-      <TaskInput handleAddTask={ handleAddTask } />
+      <TaskInput
+        handleAddTask={ handleAddTask }
+        handleUpdateTask={ handleUpdateTask }
+        todoTaskList={ todoTaskList }
+        completedTaskList={ completedTaskList }
+      />
       { showTaskList.showAllTask &&
         <TaskList
           taskList={ taskList }

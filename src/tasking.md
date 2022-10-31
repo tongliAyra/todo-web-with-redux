@@ -25,6 +25,9 @@
 4. task input
    - 输入新的taskName，点击回车储存在数据里
    - 不能添加空内容
+   - 下箭头
+     - 有未完成任务时，点击让所有task completed
+     - 全部任务completed时，点击让所有task变成 todo 状态
 5. task list
    - 显示出数据里的每一条task
      - 未完成的task
