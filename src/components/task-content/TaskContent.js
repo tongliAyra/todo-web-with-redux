@@ -39,6 +39,7 @@ export const TaskContent = () => {
   const todoTaskList = taskList.filter((task) => task.isChecked === false)
   const completedTaskList = taskList.filter((task) => task.isChecked === true)
   const todoTaskCount = todoTaskList.length
+  const completedTaskId = completedTaskList.map((task) => task.id)
 
   return (
     <div>
@@ -67,6 +68,8 @@ export const TaskContent = () => {
       <TaskOverview
         todoTaskCount={ todoTaskCount }
         handleTaskFilter={ setShowTaskList }
+        completedTaskId={ completedTaskId }
+        handleDeleteTask={ handleDeleteTask }
       />
     </div>
   )

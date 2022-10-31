@@ -5,7 +5,10 @@ const ACTIVE = 'Active'
 const COMPLETED = 'Completed'
 const CLEAR_COMPLETED = 'Clear completed'
 
-export const TaskFilter = ({ handleTaskFilter }) => {
+export const TaskFilter = (
+  { handleTaskFilter,
+    completedTaskId,
+    handleDeletedCompletedTasks }) => {
   return (
     <div>
       <button
@@ -34,7 +37,11 @@ export const TaskFilter = ({ handleTaskFilter }) => {
       }>
         { COMPLETED }
       </button>
-      <button>{ CLEAR_COMPLETED }</button>
+      <button
+        onClick={ () => completedTaskId.map((id) => handleDeletedCompletedTasks(id)) }
+      >
+        { CLEAR_COMPLETED }
+      </button>
     </div>
   )
 }
