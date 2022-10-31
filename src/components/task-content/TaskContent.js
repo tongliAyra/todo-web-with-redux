@@ -6,42 +6,68 @@ import { TaskOverview } from '../task-overview/TaskOverview'
 
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])
+  const [showTaskList, setShowTaskList] = useState({
+    showAllTask: true,
+    showTodoTask: false,
+    showCompletedTask: false
+  })
 
-  const fetchTask = async () => {
-    const response = await fetchTasks().then(res => res.data)
-    setTaskList(response)
+  const buildTaskList = async () => {
+    const response = await fetchTasks()
+    setTaskList(response.data)
   }
 
   const handleAddTask = async ({ taskName, isChecked }) => {
     await addTasks(taskName, isChecked)
-    fetchTask()
+    buildTaskList()
   }
 
   const handleUpdateTask = async ({ id, taskName, isChecked }) => {
     await updateTasks({ id, taskName, isChecked })
-    fetchTasks()
+    buildTaskList()
   }
 
   const handleDeleteTask = async (id) => {
     await deleteTasks(id)
-    fetchTasks()
+    buildTaskList()
   }
 
   useEffect(() => {
-    fetchTask()
-  },[])
+    buildTaskList()
+  }, [])
 
-  const todoTaskCount = taskList.filter((task) => task.isChecked === false).length
+  const todoTaskList = taskList.filter((task) => task.isChecked === false)
+  const completedTaskList = taskList.filter((task) => task.isChecked === true)
+  const todoTaskCount = todoTaskList.length
 
   return (
     <div>
       <TaskInput handleAddTask={ handleAddTask } />
-      <TaskList
-        taskList={ taskList }
-        handleUpdateTask={ handleUpdateTask }
-        handleDeleteTask={ handleDeleteTask }
+      { showTaskList.showAllTask &&
+        <TaskList
+          taskList={ taskList }
+          handleUpdateTask={ handleUpdateTask }
+          handleDeleteTask={ handleDeleteTask }
+        />
+      }
+      { showTaskList.showTodoTask &&
+        <TaskList
+          taskList={ todoTaskList }
+          handleUpdateTask={ handleUpdateTask }
+          handleDeleteTask={ handleDeleteTask }
+        />
+      }
+      { showTaskList.showCompletedTask &&
+        <TaskList
+          taskList={ completedTaskList }
+          handleUpdateTask={ handleUpdateTask }
+          handleDeleteTask={ handleDeleteTask }
+        />
+      }
+      <TaskOverview
+        todoTaskCount={ todoTaskCount }
+        handleTaskFilter={ setShowTaskList }
       />
-      <TaskOverview todoTaskCount={ todoTaskCount }/>
     </div>
   )
 }
