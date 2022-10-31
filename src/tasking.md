@@ -44,4 +44,6 @@
      - all 默认显示所有的任务列表
      - active 只显示未完成的任务
      - completed 只显示已完成的任务
-     - clear completed 删除所有已完成的任务
+     - clear completed 
+       - 删除所有已完成的任务
+       - 如果所有任务都为todo状态，按钮不显示

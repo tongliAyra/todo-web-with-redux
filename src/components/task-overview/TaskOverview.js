@@ -13,7 +13,7 @@ export const TaskOverview = (
       <TaskFilter
         handleTaskFilter={ handleTaskFilter }
         completedTaskId={ completedTaskId }
-        handleDeletedCompletedTasks={ handleDeleteTask }
+        handleDeletedTask={ handleDeleteTask }
       />
     </div>
   )

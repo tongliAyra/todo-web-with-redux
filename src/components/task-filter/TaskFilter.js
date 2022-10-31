@@ -6,9 +6,14 @@ const COMPLETED = 'Completed'
 const CLEAR_COMPLETED = 'Clear completed'
 
 export const TaskFilter = (
-  { handleTaskFilter,
+  {
+    handleTaskFilter,
     completedTaskId,
-    handleDeletedCompletedTasks }) => {
+    handleDeletedTask
+  }) => {
+
+  const haveToDoTask = () => completedTaskId.length > 0
+
   return (
     <div>
       <button
@@ -37,11 +42,12 @@ export const TaskFilter = (
       }>
         { COMPLETED }
       </button>
-      <button
-        onClick={ () => completedTaskId.map((id) => handleDeletedCompletedTasks(id)) }
-      >
-        { CLEAR_COMPLETED }
-      </button>
+      { haveToDoTask() &&
+        <button
+          onClick={ () => completedTaskId.map((id) => handleDeletedTask(id))
+          }>
+          { CLEAR_COMPLETED }
+        </button> }
     </div>
   )
 }
