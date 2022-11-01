@@ -3,6 +3,7 @@ import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
 import { addTasks, deleteTasks, fetchTasks, updateTasks } from '../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
+import './style.css'
 
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])
@@ -42,7 +43,7 @@ export const TaskContent = () => {
   const completedTaskId = completedTaskList.map((task) => task.id)
 
   return (
-    <div>
+    <div className='task-content'>
       <TaskInput
         handleAddTask={ handleAddTask }
         handleUpdateTask={ handleUpdateTask }

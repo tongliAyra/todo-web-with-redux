@@ -1,39 +1,22 @@
-header {
-    width: 100%;
-    height: 5rem;
+.todo-input {
     display: flex;
-    align-items: center;
-    padding: 0 10%;
-    margin: 30px;
-    justify-content: center;
-    flex-direction: column;
+    flex-flow: row wrap;
+    padding: 16px 16px 16px 60px;
+    box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
 }
 
-header h1 {
+.add-task  {
+    font-size: 24px;
     font-style: italic;
+    border: none;
+    width: 400px;
+    -webkit-font-smoothing: antialiased;
 }
 
-header div input {
-    width: 1100px;
-    height: 40px;
-    font-size: 20px;
-    margin-right: 5px;
-    margin-top: 15px;
-    border-radius: 5px;
-    border: 0.5px outset gray;
-}
-
-header button {
-    cursor: pointer;
-    background-color: #e37474;
-    color: white;
-    border-radius: 6px;
-    border: white;
-    font-size: 20px;
-    padding: 9px 15px 10px;
-}
-
-header button:hover,
-header button:active {
-    background-color: #5a93b9;
+.down-icon {
+    font-size: x-large;
+    color: gray;
+    align-items: center;
+    display: flex;
+    width: 60px;
 }

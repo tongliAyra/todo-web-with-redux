@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
@@ -10,6 +11,7 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
         <li key={ taskList.id }>
           <label htmlFor="check-box" />
           <input
+            className='check-box'
             type="checkbox"
             checked={ taskList.isChecked }
             onChange={ () => handleUpdateTask(

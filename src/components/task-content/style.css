@@ -1,0 +1,10 @@
+.task-content {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+    width: 550px;
+    height: 345px;
+}

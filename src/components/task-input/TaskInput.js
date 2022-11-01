@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './style.css'
 import { Input } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
+import './style.css'
 
 const PLACEHOLDER = 'What needs to be done?'
 
@@ -41,8 +42,10 @@ export const TaskInput = (
 
 
   return (
-    <div>
-      <DownOutlined onClick={ () => checkTasks() }/>
+    <div className='todo-input'>
+      <DownOutlined
+        className='down-icon'
+        onClick={ () => checkTasks() }/>
       <label htmlFor="add-task" />
       <Input
         type="text"
