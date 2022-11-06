@@ -3,8 +3,18 @@ import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
 import { addTasks, deleteTasks, fetchTasks, updateTasks } from '../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
-import './style.css'
+import styled from 'styled-components'
 
+const StyledTaskContent = styled.div`
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+    width: 550px;
+    height: 345px;
+`
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])
   const [showTaskList, setShowTaskList] = useState({
@@ -43,7 +53,7 @@ export const TaskContent = () => {
   const completedTaskId = completedTaskList.map((task) => task.id)
 
   return (
-    <div className='task-content'>
+    <StyledTaskContent>
       <TaskInput
         handleAddTask={ handleAddTask }
         handleUpdateTask={ handleUpdateTask }
@@ -77,6 +87,6 @@ export const TaskContent = () => {
         completedTaskId={ completedTaskId }
         handleDeleteTask={ handleDeleteTask }
       />
-    </div>
+    </StyledTaskContent>
   )
 }
