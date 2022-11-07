@@ -7,14 +7,11 @@ import styled from 'styled-components'
 
 const StyledTaskContent = styled.div`
     display: flex;
-    flex-flow: column wrap;
-    align-content: space-around;
-    justify-content: space-around;
+    flex-direction: column;
     background-color: #fff;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
-    width: 550px;
-    height: 345px;
 `
+
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])
   const [showTaskList, setShowTaskList] = useState({

@@ -3,27 +3,30 @@ import { DownOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
 import { Input } from 'antd'
 
+const StyledTaskInputWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 10px;
+    box-shadow: inset 0 -2px 4px rgb(0 0 0 / 6%);
+    width: 550px;
+    height: 70px;
+`
+
 const StyledTaskInput = styled(Input)`
     font-size: 24px;
     font-style: italic;
     border: none;
     width: 400px;
-    -webkit-font-smoothing: antialiased
-`
-
-const StyledTaskInputWrapper = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    padding: 16px 16px 16px 60px;
-    box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+    -webkit-font-smoothing: antialiased;
+    outline: none;
 `
 
 const StyledIcon = styled(DownOutlined)`
-    font-size: x-large;
-    color: gray;
-    align-items: center;
     display: flex;
-    width: 60px;
+    font-size: x-large;
+    color: lightgray;
+    align-items: center;
 `
 
 const PLACEHOLDER = 'What needs to be done?'
