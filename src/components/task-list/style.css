@@ -1,3 +1,25 @@
-.check-box {
-    border-radius: 15px;
+input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: 1px solid #c9c7c7;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+input[type='checkbox']:before {
+    content: "✓";
+    color: #c7dca4;
+    display: none;
+    font-weight: 2000;
+    font-size: 25px;
+}
+
+input[type=checkbox]:checked:before {
+    display: block;
 }

@@ -47,3 +47,10 @@
      - clear completed 
        - 删除所有已完成的任务
        - 如果所有任务都为todo状态，按钮不显示
+7. ui
+   - 自定义 checkbox
+   - 删除icon hover显示
+   - 筛选按钮状态传递
+   - import 自定义字体使用
+8. nice to have
+   - 双击编辑输入内容

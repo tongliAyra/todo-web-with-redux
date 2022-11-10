@@ -1,6 +1,7 @@
 import { CloseOutlined } from '@ant-design/icons'
 import React from 'react'
 import styled from 'styled-components'
+import './style.css'
 
 const StyledList = styled.li`
   display: flex;
@@ -23,22 +24,6 @@ const StyledDeleted = styled.div`
   margin-right: 15px
 `
 
-const StyledCheckBox = styled.input`
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  border: 1px solid lightgray;
-`
-
-const CheckMark = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-`
-
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
   const sortedTasks = taskList.sort((a, b) => b.id - a.id)
@@ -47,17 +32,16 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
     <StyledListWrapper>
       { sortedTasks.map((taskList) => (
         <StyledList key={ taskList.id }>
-          <label htmlFor="check-box" >
-            <StyledCheckBox
-              type='check-box'
-              checked={ taskList.isChecked }
-              onChange={ () => handleUpdateTask(
-                { id: taskList.id,
-                  taskName: taskList.taskName,
-                  isChecked: !taskList.isChecked }) }
-            />
-            <CheckMark/>
-          </label>
+          <label htmlFor="check"/>
+          <input
+            type='checkbox'
+            id='check'
+            checked={ taskList.isChecked }
+            onChange={ () => handleUpdateTask(
+              { id: taskList.id,
+                taskName: taskList.taskName,
+                isChecked: !taskList.isChecked }) }
+          />
           <span
             id={ taskList.id }
             contentEditable={ true }
