@@ -51,6 +51,7 @@
    - 自定义 checkbox
    - 删除icon hover显示
    - 筛选按钮状态传递
+   - 点击任务完成，task内容变成加横杠
    - import 自定义字体使用
 8. nice to have
    - 双击编辑输入内容

@@ -57,8 +57,17 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
           />
           <span
             id={ taskList.id }
-            contentEditable={ true }
-            suppressContentEditableWarning={ true }
+            style={ taskList.isChecked ?
+              { textDecoration: 'line-through',
+                color: 'lightgray',
+                fontSize: '20px'
+              }:
+              {
+                color: 'gray',
+                fontSize: '20px'
+              } }
+            // contentEditable={ true }
+            // suppressContentEditableWarning={ true }
           >
             { taskList.taskName }
           </span>
