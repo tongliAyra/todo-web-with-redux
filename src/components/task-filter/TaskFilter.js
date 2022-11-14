@@ -5,9 +5,19 @@ const StyledButton = styled.button`
     font-size: 14px;
     color: #0000008c;
     margin-left: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    
+    &:hover{
+    border: 1px solid rgba(175, 47, 47, 0.2);
+    border-radius: 4px;    
+    }
+    
+    &:focus{
     border: 1px solid #e2909d;
     border-radius: 4px;
-    background-color: white;
+    }
 `
 const ALL = 'All'
 const ACTIVE = 'Active'
@@ -20,7 +30,7 @@ const StyledTaskFilter = styled.div`
   margin-right: 10px;
 `
 
-const StyledBtns = styled.div`
+const StyledBtnWrapper = styled.div`
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -32,22 +42,23 @@ export const TaskFilter = (
     completedTaskId,
     handleDeletedTask
   }) => {
-
   const haveToDoTask = () => completedTaskId.length > 0
 
   return (
     <StyledTaskFilter>
-      <StyledBtns>
+      <StyledBtnWrapper>
         <StyledButton
-          onClick={ () => handleTaskFilter({
-            showAllTask: true,
-            showTodoTask: false,
-            showCompletedTask: false
-          })
+          onClick={
+            () => handleTaskFilter({
+              showAllTask: true,
+              showTodoTask: false,
+              showCompletedTask: false
+            })
           }>
           { ALL }
         </StyledButton>
         <StyledButton
+          isAllBtn={ false }
           onClick={ () => handleTaskFilter({
             showAllTask: false,
             showTodoTask: true,
@@ -56,15 +67,17 @@ export const TaskFilter = (
           }>
           { ACTIVE }
         </StyledButton>
-        <StyledButton onClick={ () => handleTaskFilter({
-          showAllTask: false,
-          showTodoTask: false,
-          showCompletedTask: true
-        })
-        }>
+        <StyledButton
+          isAllBtn={ false }
+          onClick={ () => handleTaskFilter({
+            showAllTask: false,
+            showTodoTask: false,
+            showCompletedTask: true
+          })
+          }>
           { COMPLETED }
         </StyledButton>
-      </StyledBtns>
+      </StyledBtnWrapper>
       { haveToDoTask() &&
         <StyledButton
           onClick={ () => completedTaskId.map((id) => handleDeletedTask(id))
