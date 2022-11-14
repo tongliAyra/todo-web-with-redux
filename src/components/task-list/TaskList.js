@@ -10,6 +10,17 @@ const StyledList = styled.li`
   align-items: center;
   border-bottom: 0.3px solid lightgray;
   padding-left: 10px;
+  cursor: pointer;
+  
+  .delete-btn-wrapper{
+  opacity: 0;
+  }
+  
+  &:hover{
+  .delete-btn-wrapper{
+  opacity: 1;
+  }
+  }
 `
 
 const StyledListWrapper = styled.ul`
@@ -21,7 +32,7 @@ const StyledDeleted = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
-  margin-right: 15px
+  margin-right: 15px;
 `
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
@@ -50,10 +61,11 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
             { taskList.taskName }
           </span>
           <StyledDeleted
-            className="delete-btn"
-            onClick={ () => handleDeleteTask(taskList.id) }
+            className='delete-btn-wrapper'
           >
             <CloseOutlined
+              onClick={ () => handleDeleteTask(taskList.id) }
+              className="delete-btn"
               style={ { color: 'rgb(175 47 47 / 29%)' } }
               size='middle'
             />
