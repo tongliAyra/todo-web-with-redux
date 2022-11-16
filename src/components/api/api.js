@@ -10,5 +10,4 @@ export const fetchTasks = async () => await axios.get(URL)
 
 export const updateTasks = async (updateTask) => await axios.put(`${URL}/${updateTask.id}`, updateTask)
 
-
 export const deleteTasks = async (id) => await axios.delete(`${URL}/${id}`)
