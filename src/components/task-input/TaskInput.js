@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
-import { Input } from 'antd'
 
 const StyledTaskInputWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     padding-left: 10px;
     box-shadow: inset 0 -2px 4px rgb(0 0 0 / 6%);
     width: 550px;
     height: 70px;
 `
 
-const StyledTaskInput = styled(Input)`
+const StyledTaskInput = styled.input`
     font-size: 24px;
     font-style: italic;
     border: none;
     width: 400px;
-    -webkit-font-smoothing: antialiased;
     outline: none;
+    font-family: inherit;
+    font-weight: 300;
+    opacity: 0.3;
 `
 
 const StyledIcon = styled(DownOutlined)`

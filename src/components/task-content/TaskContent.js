@@ -6,6 +6,7 @@ import { TaskOverview } from '../task-overview/TaskOverview'
 import styled from 'styled-components'
 
 const StyledTaskContent = styled.div`
+    -webkit-font-smoothing: antialiased;
     display: flex;
     flex-direction: column;
     background-color: #fff;

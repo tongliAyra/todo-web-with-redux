@@ -5,11 +5,10 @@ import './style.css'
 
 const StyledList = styled.li`
   display: flex;
-  gap: 10px;
+  gap: 5px;
   height: 58px;
   align-items: center;
   border-bottom: 0.3px solid lightgray;
-  padding-left: 10px;
   cursor: pointer;
   
   .delete-btn-wrapper{
@@ -60,11 +59,12 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
             style={ taskList.isChecked ?
               { textDecoration: 'line-through',
                 color: 'lightgray',
-                fontSize: '20px'
+                fontSize: '24px',
+                paddingLeft: '10px'
               }:
               {
-                color: 'gray',
-                fontSize: '20px'
+                fontSize: '24px',
+                paddingLeft: '10px'
               } }
             // contentEditable={ true }
             // suppressContentEditableWarning={ true }

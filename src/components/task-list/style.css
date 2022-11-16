@@ -12,6 +12,11 @@ input[type='checkbox'] {
     border-radius: 50%;
 }
 
+input[type='checkbox']:checked{
+    border: 1px solid #c7dca4;
+    border-radius: 50%;
+}
+
 input[type='checkbox']:before {
     content: "✓";
     color: #c7dca4;
