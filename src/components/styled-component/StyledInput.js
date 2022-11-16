@@ -1,4 +1,6 @@
-input[type='checkbox'] {
+import styled from 'styled-components'
+
+export const StyledInput = styled.input`
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
@@ -10,21 +12,22 @@ input[type='checkbox'] {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-}
 
-input[type='checkbox']:checked{
+  &:checked{
     border: 1px solid #c7dca4;
     border-radius: 50%;
-}
+    }
 
-input[type='checkbox']:before {
+  &:before {
     content: "✓";
     color: #c7dca4;
     display: none;
     font-weight: 2000;
     font-size: 25px;
-}
+    }
 
-input[type=checkbox]:checked:before {
+  &:checked:before {
     display: block;
-}
+    }
+
+`

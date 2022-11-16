@@ -1,11 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const StyledToDoTaskCount = styled.p`
-  font-size: 14px;
-  color: #0000008c;
-  margin-left: 10px;
-`
+import { StyledToDoTaskCount } from '../styled-component/StyledToDoTaskCount'
 
 export const ToDoTaskCount = ({ todoTaskCount }) => {
   const todoCountAmount = todoTaskCount

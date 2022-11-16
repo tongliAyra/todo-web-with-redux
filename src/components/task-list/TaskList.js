@@ -1,40 +1,9 @@
 import { CloseOutlined } from '@ant-design/icons'
 import React from 'react'
-import styled from 'styled-components'
-import './style.css'
-
-const StyledList = styled.li`
-  display: flex;
-  gap: 5px;
-  height: 58px;
-  align-items: center;
-  border-bottom: 0.3px solid lightgray;
-  cursor: pointer;
-  
-  .delete-btn-wrapper{
-  opacity: 0;
-  }
- 
-  &:hover{
-  .delete-btn-wrapper{
-  opacity: 1;
-  }
-`
-
-const StyledListWrapper = styled.ul`
-  margin: 0;
-  padding: 0;
-`
-
-const StyledDeleted = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  margin-right: 15px;
-   .delete-btn{
-   color: rgb(175 47 47 / 50%)
-  }
-`
+import { StyledList } from '../styled-component/StyledList'
+import { StyledInput } from '../styled-component/StyledInput'
+import { StyledListWrapper } from '../styled-component/StyledListWrapper'
+import { StyledDeleted } from '../styled-component/StyledDeleted'
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
@@ -45,7 +14,7 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
       { sortedTasks.map((taskList) => (
         <StyledList key={ taskList.id }>
           <label htmlFor="check"/>
-          <input
+          <StyledInput
             type='checkbox'
             id='check'
             checked={ taskList.isChecked }

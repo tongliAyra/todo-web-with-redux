@@ -1,40 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import { StyledTaskFilter } from '../styled-component/StyledTaskFilter'
+import { StyledBtnWrapper } from '../styled-component/StyledBtnWrapper'
+import { StyledButton } from '../styled-component/StyledButton'
 
-const StyledButton = styled.button`
-    font-size: 14px;
-    color: #0000008c;
-    margin-left: 10px;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    
-    &:hover{
-    border: 1px solid rgba(175, 47, 47, 0.2);
-    border-radius: 4px;    
-    }
-    
-    &:focus{
-    border: 1px solid #e2909d;
-    border-radius: 4px;
-    }
-`
 const ALL = 'All'
 const ACTIVE = 'Active'
 const COMPLETED = 'Completed'
 const CLEAR_COMPLETED = 'Clear completed'
-
-const StyledTaskFilter = styled.div`
-  display: flex;
-  gap: 30px;
-  margin-right: 10px;
-`
-
-const StyledBtnWrapper = styled.div`
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-`
 
 export const TaskFilter = (
   {

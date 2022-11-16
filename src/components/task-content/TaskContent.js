@@ -3,15 +3,7 @@ import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
 import { addTasks, deleteTasks, fetchTasks, updateTasks } from '../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
-import styled from 'styled-components'
-
-const StyledTaskContent = styled.div`
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
-`
+import { StyledTaskContent } from '../styled-component/StyledTaskContent'
 
 export const TaskContent = () => {
   const [taskList, setTaskList] = useState([])

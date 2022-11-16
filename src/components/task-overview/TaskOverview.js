@@ -1,15 +1,7 @@
 import React from 'react'
 import { ToDoTaskCount } from '../todo-task-count/ToDoTaskCount'
 import { TaskFilter } from '../task-filter/TaskFilter'
-import styled from 'styled-components'
-
-const StyledTaskOverview = styled.div`
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: center;
-  align-content: flex-end;
-`
+import { StyledTaskOverview } from '../styled-component/StyledTaskOverview'
 
 export const TaskOverview = (
   { todoTaskCount,
