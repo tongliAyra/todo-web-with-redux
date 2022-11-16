@@ -4,6 +4,7 @@ import { StyledList } from '../styled-component/StyledList'
 import { StyledInput } from '../styled-component/StyledInput'
 import { StyledListWrapper } from '../styled-component/StyledListWrapper'
 import { StyledDeleted } from '../styled-component/StyledDeleted'
+import { StyledTaskName } from '../styled-component/StyledTaskName'
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
@@ -23,23 +24,14 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
                 taskName: taskList.taskName,
                 isChecked: !taskList.isChecked }) }
           />
-          <span
+          <StyledTaskName
+            isChecked={ taskList.isChecked }
             id={ taskList.id }
-            style={ taskList.isChecked ?
-              { textDecoration: 'line-through',
-                color: 'lightgray',
-                fontSize: '24px',
-                paddingLeft: '10px'
-              }:
-              {
-                fontSize: '24px',
-                paddingLeft: '10px'
-              } }
             // contentEditable={ true }
             // suppressContentEditableWarning={ true }
           >
             { taskList.taskName }
-          </span>
+          </StyledTaskName>
           <StyledDeleted
             className='delete-btn-wrapper'
           >

@@ -6,7 +6,6 @@ export const StyledList = styled.li`
   height: 58px;
   align-items: center;
   border-bottom: 0.3px solid lightgray;
-  cursor: pointer;
   
   .delete-btn-wrapper{
   opacity: 0;

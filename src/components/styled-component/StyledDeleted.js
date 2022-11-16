@@ -6,7 +6,8 @@ export const StyledDeleted = styled.div`
   justify-content: flex-end;
   margin-right: 15px;
    .delete-btn{
-   color: rgb(175 47 47 / 50%)
+   color: rgb(175 47 47 / 50%);
+   cursor: pointer;
   }
   
   .delete-btn:hover {
