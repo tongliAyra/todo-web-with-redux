@@ -50,27 +50,13 @@ export const TaskContent = () => {
         todoTaskList={ todoTaskList }
         completedTaskList={ completedTaskList }
       />
-      { showTaskList.showAllTask &&
-        <TaskList
-          taskList={ taskList }
-          handleUpdateTask={ handleUpdateTask }
-          handleDeleteTask={ handleDeleteTask }
-        />
-      }
-      { showTaskList.showTodoTask &&
-        <TaskList
-          taskList={ todoTaskList }
-          handleUpdateTask={ handleUpdateTask }
-          handleDeleteTask={ handleDeleteTask }
-        />
-      }
-      { showTaskList.showCompletedTask &&
-        <TaskList
-          taskList={ completedTaskList }
-          handleUpdateTask={ handleUpdateTask }
-          handleDeleteTask={ handleDeleteTask }
-        />
-      }
+      <TaskList
+        taskList={ showTaskList.showAllTask && taskList ||
+          showTaskList.showTodoTask && todoTaskList ||
+          showTaskList.showCompletedTask && completedTaskList }
+        handleDeleteTask={ handleDeleteTask }
+        handleUpdateTask={ handleUpdateTask }
+      />
       <TaskOverview
         todoTaskCount={ todoTaskCount }
         handleTaskFilter={ setShowTaskList }
