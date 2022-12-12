@@ -4,9 +4,13 @@ import { TaskList } from '../task-list/TaskList'
 import { addTasks, deleteTasks, fetchTasks, updateTasks } from '../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
 import { StyledTaskContent } from '../styled-component/StyledTaskContent'
+import { useSelector } from 'react-redux'
+import { allTasks } from '../../taskSlice'
 
 export const TaskContent = () => {
-  const [taskList, setTaskList] = useState([])
+  const storedTaskList = useSelector(allTasks)
+
+  const [taskList, setTaskList] = useState(storedTaskList)
   const [showTaskList, setShowTaskList] = useState({
     showAllTask: true,
     showTodoTask: false,

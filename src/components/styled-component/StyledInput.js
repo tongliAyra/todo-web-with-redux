@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+//todo: try to use svg about checkbox '✓'
 export const StyledInput = styled.input`
     appearance: none;
     -webkit-appearance: none;
@@ -17,7 +17,6 @@ export const StyledInput = styled.input`
     border: 1px solid #c7dca4;
     border-radius: 50%;
     }
-
   &:before {
     content: "✓";
     color: #c7dca4;
