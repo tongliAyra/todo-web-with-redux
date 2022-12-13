@@ -4,11 +4,12 @@ import { SingleTaskList } from './SingleTaskList'
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
-  const sortedTasks = taskList.sort((a, b) => b.id - a.id)
+  const sortedTasks = [...taskList]
+  const renderList = sortedTasks.sort((a, b) => b.id - a.id)
 
   return (
     <StyledListWrapper>
-      { sortedTasks.map((task) =>
+      { renderList.map((task) =>
         (<SingleTaskList
           key={ task.id }
           taskList={ task }
