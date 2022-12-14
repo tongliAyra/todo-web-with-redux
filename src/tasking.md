@@ -55,3 +55,14 @@
    - 使用字体样式调整
 8. nice to have
    - 双击编辑输入内容
+
+
+tasking：
+1 api相关saga部分修改完毕
+2 进行 saga测试， slice/ reducer测试
+3 增加单元测试
+
+
+nice to do
+4 test cafe 测试
+5 顺features check是否有全局变量使用redux store管理

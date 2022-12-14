@@ -2,8 +2,9 @@ import axios from 'axios'
 
 const URL = 'http://localhost:3001/tasks'
 
-export const addTasksApi = async (taskName, isChecked) => {
-  await axios.post(URL, { taskName, isChecked })
+export const addTasksApi = async (data) => {
+  const { taskName, isChecked } = data
+  return await axios.post(URL, { taskName, isChecked })
 }
 
 export const fetchTaskApi = async () => await axios.get(URL)

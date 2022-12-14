@@ -5,7 +5,10 @@ export const taskSlice = createSlice({
   initialState: [],
   reducers: {
     fetchTasks: (state, action) => action.payload,
-    addTasks: (state, action) => state.push(action.payload),
+    addTasks: (state, action) => {
+      state.push(action.payload)
+      return state
+    },
     updateTask: (state, action) =>
       state.map((task) =>
         task.id === action.payload.id ? action.payload : task),

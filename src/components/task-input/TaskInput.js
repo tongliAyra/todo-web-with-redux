@@ -2,24 +2,28 @@ import React, { useState } from 'react'
 import { StyledTaskInputWrapper } from '../styled-component/StyledTaskInputWrapper'
 import { StyledIcon } from '../styled-component/StyledIcon'
 import { StyledTaskInput } from '../styled-component/StyledTaskInput'
+import { useDispatch } from 'react-redux'
+import { addTaskSaga } from '../../sagaActions'
 
 const PLACEHOLDER = 'What needs to be done?'
 
 export const TaskInput = (
-  { handleAddTask,
-    handleUpdateTask,
+  { handleUpdateTask,
     completedTaskList,
     todoTaskList }) => {
-  const [taskName, setTaskName] = useState('')
+  const [newTask, setNewTask] = useState('')
+  const dispatch = useDispatch()
 
-  const onChangeName = (e) => setTaskName(e.target.value)
+  const onChangeName = (e) => setNewTask(e.target.value)
 
   const handlePressEnter = () => {
-    if (taskName !== ''){
-      handleAddTask({ taskName, isChecked: false })
-      setTaskName('')
-    }else {
+    if (newTask.match(/^\s*$/)){
       return null
+    }else {
+      dispatch(addTaskSaga({
+        taskName: newTask.trim(),
+        isChecked: false }))
+      setNewTask('')
     }
   }
 
@@ -48,8 +52,8 @@ export const TaskInput = (
       <StyledTaskInput
         type="text"
         placeholder={ PLACEHOLDER }
-        onPressEnter={ () => handlePressEnter() }
-        value={ taskName }
+        onPressEnter={ handlePressEnter }
+        value={ newTask }
         onChange={ onChangeName }
       />
     </StyledTaskInputWrapper>

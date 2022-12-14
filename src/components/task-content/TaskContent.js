@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
-import { addTasksApi, deleteTasksApi, updateTasksApi } from '../../api/api'
+import { deleteTasksApi, updateTasksApi } from '../../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
 import { StyledTaskContent } from '../styled-component/StyledTaskContent'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { allTasks } from '../../taskSlice'
+import { fetchTaskSaga } from '../../sagaActions'
 
 export const TaskContent = () => {
   const storedTaskList = useSelector(allTasks)
@@ -15,10 +16,10 @@ export const TaskContent = () => {
     showTodoTask: false,
     showCompletedTask: false
   })
-
-  const handleAddTask = async ({ taskName, isChecked }) => {
-    await addTasksApi(taskName, isChecked)
-  }
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchTaskSaga())
+  },[])
 
   const handleUpdateTask = async ({ id, taskName, isChecked }) => {
     await updateTasksApi({ id, taskName, isChecked })
@@ -36,7 +37,6 @@ export const TaskContent = () => {
   return (
     <StyledTaskContent>
       <TaskInput
-        handleAddTask={ handleAddTask }
         handleUpdateTask={ handleUpdateTask }
         todoTaskList={ todoTaskList }
         completedTaskList={ completedTaskList }

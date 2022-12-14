@@ -1,6 +1,6 @@
-import { call,put,all, takeLatest } from 'redux-saga/effects'
-import { fetchTaskApi } from './api/api'
-import { fetchTasks } from './taskSlice'
+import { call,put, takeEvery,all, takeLatest } from 'redux-saga/effects'
+import { addTasksApi, fetchTaskApi } from './api/api'
+import { addTasks, fetchTasks } from './taskSlice'
 import { sagaActions } from './sagaActions'
 
 function* fetchTaskList(){
@@ -8,21 +8,25 @@ function* fetchTaskList(){
   yield put(fetchTasks(res.data))
 }
 
+function* addSingleTask(action){
+  try {
+    const res = yield call(addTasksApi,action.payload)
+    yield put(addTasks(res.data))
+  }catch (error){
+    yield put({ type: sagaActions.ADD_DATA_SAGA_FAILED })
+  }
+}
+
 function* watchFetchTasks(){
   yield takeLatest(sagaActions.FETCH_DATA_SAGA,fetchTaskList)
 }
 
-export default function* rootSaga(){
-  yield all([watchFetchTasks()])
+function* watchAddTasks(){
+  yield takeEvery(sagaActions.ADD_DATA_SAGA,addSingleTask)
 }
-
-
-// export const addTasksApi = async (taskName, isChecked) => {
-//   await axios.post(URL, { taskName, isChecked })
-// }
-//
-// export const fetchTaskApi = async () => await axios.get(URL)
-//
-// export const updateTasksApi = async (updateTask) => await axios.put(`${URL}/${updateTask.id}`, updateTask)
-//
-// export const deleteTasksApi = async (id) => await axios.delete(`${URL}/${id}`)
+export default function* rootSaga(){
+  yield all([
+    watchFetchTasks(),
+    watchAddTasks()
+  ])
+}

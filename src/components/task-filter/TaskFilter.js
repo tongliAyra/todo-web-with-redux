@@ -3,6 +3,7 @@ import { StyledTaskFilter } from '../styled-component/StyledTaskFilter'
 import { StyledBtnWrapper } from '../styled-component/StyledBtnWrapper'
 import { StyledButton } from '../styled-component/StyledButton'
 
+//todo: should use filter slice of redux to manage
 const ALL = 'All'
 const ACTIVE = 'Active'
 const COMPLETED = 'Completed'

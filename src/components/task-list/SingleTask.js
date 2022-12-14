@@ -6,7 +6,7 @@ import { StyledEditInput } from '../styled-component/StyledEditInput'
 import { StyledDeleted } from '../styled-component/StyledDeleted'
 import { CloseOutlined } from '@ant-design/icons'
 
-export const SingleTaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
+export const SingleTask = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
   const [editToggle, setEditToggle] = useState(true)
   const [taskName, setTaskName] = useState(taskList.taskName)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledListWrapper } from '../styled-component/StyledListWrapper'
-import { SingleTaskList } from './SingleTaskList'
+import { SingleTask } from './SingleTask'
 
 export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
 
@@ -10,7 +10,7 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
   return (
     <StyledListWrapper>
       { renderList.map((task) =>
-        (<SingleTaskList
+        (<SingleTask
           key={ task.id }
           taskList={ task }
           handleUpdateTask={ handleUpdateTask }
