@@ -1,28 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
-import { deleteTasksApi, updateTasksApi } from '../../api/api'
+import { deleteTasksApi } from '../../api/api'
 import { TaskOverview } from '../task-overview/TaskOverview'
 import { StyledTaskContent } from '../styled-component/StyledTaskContent'
 import { useDispatch, useSelector } from 'react-redux'
 import { allTasks } from '../../taskSlice'
-import { fetchTaskSaga } from '../../sagaActions'
+import { addTaskSaga, updateTaskSaga } from '../../sagaActions'
 
 export const TaskContent = () => {
   const storedTaskList = useSelector(allTasks)
+  const dispatch = useDispatch()
 
   const [showTaskList, setShowTaskList] = useState({
     showAllTask: true,
     showTodoTask: false,
     showCompletedTask: false
   })
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchTaskSaga())
-  },[])
 
-  const handleUpdateTask = async ({ id, taskName, isChecked }) => {
-    await updateTasksApi({ id, taskName, isChecked })
+  const handleAddTask = (newTask) => {
+    dispatch(addTaskSaga({
+      taskName: newTask.trim(),
+      isChecked: false }))
+  }
+
+  const handleUpdateTask = (updateTask) => {
+    updateTask.map((task) => dispatch(updateTaskSaga(
+      {
+        id: task.id,
+        taskName: task.taskName,
+        isChecked: !task.isChecked
+      })))
   }
 
   const handleDeleteTask = async (id) => {
@@ -38,6 +46,7 @@ export const TaskContent = () => {
     <StyledTaskContent>
       <TaskInput
         handleUpdateTask={ handleUpdateTask }
+        handleAddTask={ handleAddTask }
         todoTaskList={ todoTaskList }
         completedTaskList={ completedTaskList }
       />
