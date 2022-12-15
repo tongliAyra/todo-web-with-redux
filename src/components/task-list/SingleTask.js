@@ -5,50 +5,44 @@ import { StyledTaskName } from '../styled-component/StyledTaskName'
 import { StyledEditInput } from '../styled-component/StyledEditInput'
 import { StyledDeleted } from '../styled-component/StyledDeleted'
 import { CloseOutlined } from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { updateTaskSaga } from '../../redux/saga/sagaActions'
 
-export const SingleTask = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
+export const SingleTask = ({ task, handleUpdateTask, handleDeleteTask }) => {
 
   const [editToggle, setEditToggle] = useState(true)
-  const [taskName, setTaskName] = useState(taskList.taskName)
+  const [taskName, setTaskName] = useState(task.taskName)
+  const dispatch = useDispatch()
+
+  const handleEditTask = () => {
+    dispatch(updateTaskSaga({ ...task, taskName }))
+    setEditToggle(true)
+  }
 
   return (
-    <StyledList key={ taskList.id }>
+    <StyledList key={ task.id }>
       <label htmlFor="check"/>
       <StyledInput
         type='checkbox'
         id='check'
-        checked={ taskList.isChecked }
-        onChange={ () => handleUpdateTask(
-          { id: taskList.id,
-            taskName: taskList.taskName,
-            isChecked: !taskList.isChecked }) }
+        checked={ task.isChecked }
+        onChange={ () => handleUpdateTask(task) }
       />
       { editToggle ?
         <StyledTaskName
-          key={ taskList.id }
-          isChecked={ taskList.isChecked }
-          id={ taskList.id }
+          key={ task.id }
+          isChecked={ task.isChecked }
+          id={ task.id }
           onDoubleClick={ () => setEditToggle(false) }
         >
-          { taskList.taskName }
+          { task.taskName }
         </StyledTaskName>
         :
         <StyledEditInput
-          key={ taskList.id }
+          key={ task.id }
           value={ taskName }
           onChange={ (e) => setTaskName(e.target.value) }
-          onPressEnter={
-            () => {
-              handleUpdateTask(
-                {
-                  id: taskList.id,
-                  taskName,
-                  isChecked: taskList.isChecked
-                }
-              )
-              setEditToggle(true)
-            }
-          }
+          onPressEnter={ handleEditTask }
         />
       }
 
@@ -56,7 +50,7 @@ export const SingleTask = ({ taskList, handleUpdateTask, handleDeleteTask }) => 
         className='delete-btn-wrapper'
       >
         <CloseOutlined
-          onClick={ () => handleDeleteTask(taskList.id) }
+          onClick={ () => handleDeleteTask(task.id) }
           className="delete-btn"
           size='middle'
         />

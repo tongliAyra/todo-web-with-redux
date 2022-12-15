@@ -1,6 +1,6 @@
 import { all, call, put, takeEvery, takeLatest } from 'redux-saga/effects'
-import { addTasksApi, fetchTaskApi, updateTasksApi } from './api/api'
-import { addTasks, fetchTasks, updateTask } from './taskSlice'
+import { addTasksApi, deleteTasksApi, fetchTaskApi, updateTasksApi } from '../../api/api'
+import { addTasks, deleteTask, fetchTasks, updateTask } from '../taskSlice'
 import { sagaActions } from './sagaActions'
 
 function* fetchTaskList(){
@@ -30,6 +30,19 @@ function* updateSingleTask(action){
   }
 }
 
+function* deleteSingleTask(action){
+  try {
+    yield call(deleteTasksApi,action.payload)
+    yield put(deleteTask(action.payload))
+  }catch (error){
+    yield put({ type: sagaActions.DELETE_DATA_SAGA_FAILED })
+  }
+}
+
+function* watchDeleteTasks(){
+  yield takeEvery(sagaActions.DELETE_DATA_SAGA,deleteSingleTask)
+}
+
 function* watchUpdateTasks(){
   yield takeEvery(sagaActions.UPDATE_DATA_SAGA,updateSingleTask)
 }
@@ -46,6 +59,7 @@ export default function* rootSaga(){
   yield all([
     watchFetchTasks(),
     watchAddTasks(),
-    watchUpdateTasks()
+    watchUpdateTasks(),
+    watchDeleteTasks()
   ])
 }

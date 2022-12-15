@@ -12,7 +12,7 @@ export const TaskList = ({ taskList, handleUpdateTask, handleDeleteTask }) => {
       { renderList.map((task) =>
         (<SingleTask
           key={ task.id }
-          taskList={ task }
+          task={ task }
           handleUpdateTask={ handleUpdateTask }
           handleDeleteTask={ handleDeleteTask }
         />)) }
