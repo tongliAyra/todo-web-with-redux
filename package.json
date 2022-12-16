@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "server": "json-server -p 3001 ./json-server/db.json",
     "lint": "eslint . --ext .js,.jsx"

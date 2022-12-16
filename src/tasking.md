@@ -58,7 +58,7 @@
 
 
 tasking：
-1 api相关saga部分修改完毕
+1 api相关saga部分修改完毕 ✅
 2 进行 saga测试， slice/ reducer测试
 3 增加单元测试
 

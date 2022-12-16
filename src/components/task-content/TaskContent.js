@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TaskInput } from '../task-input/TaskInput'
 import { TaskList } from '../task-list/TaskList'
 import { TaskOverview } from '../task-overview/TaskOverview'
 import { StyledTaskContent } from '../styled-component/StyledTaskContent'
 import { useDispatch, useSelector } from 'react-redux'
 import { allTasks } from '../../redux/taskSlice'
-import { addTaskSaga, deleteTaskSaga, updateTaskSaga } from '../../redux/saga/sagaActions'
+import { addTaskSaga, deleteTaskSaga, fetchTaskSaga, updateTaskSaga } from '../../redux/saga/sagaActions'
 
 export const TaskContent = () => {
   const storedTaskList = useSelector(allTasks)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchTaskSaga())
+  },[])
 
   const [showTaskList, setShowTaskList] = useState({
     showAllTask: true,
