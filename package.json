@@ -5,9 +5,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.3",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
     "antd": "^4.22.4",
     "axios": "^0.27.2",
     "react": "^18.0.0",
@@ -22,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --coverage --colors",
     "eject": "react-scripts eject",
     "server": "json-server -p 3001 ./json-server/db.json",
     "lint": "eslint . --ext .js,.jsx"
@@ -46,6 +43,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "2.7.1"
   }
