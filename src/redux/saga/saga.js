@@ -11,8 +11,8 @@ function* fetchTaskList(){
     yield put({ type: sagaActions.FETCH_DATA_SAGA_FAILED })
   }
 }
-// one feature 去跑通整个测试
-function* addSingleTask(action){
+//Test feature
+export function* addSingleTask(action){
   try {
     const res = yield call(addTasksApi,action.payload)
     yield put(addTasks(res.data))
@@ -20,8 +20,8 @@ function* addSingleTask(action){
     yield put({ type: sagaActions.ADD_DATA_SAGA_FAILED })
   }
 }
-
-function* updateSingleTask(action){
+//Test feature
+export function* updateSingleTask(action){
   try {
     const res = yield call(updateTasksApi,action.payload)
     yield put(updateTask(res.data))
